@@ -114,22 +114,32 @@
   /* ---------- hero presave ---------- */
   .hero-content .credit{
     font-family:'Fraunces',serif;font-style:italic;font-weight:400;
-    font-size:clamp(1rem,2.2vw,1.2rem);color:var(--bone-dim);margin-top:10px;
+    font-size:clamp(1rem,2.2vw,1.2rem);color:var(--bone-dim);margin-top:2px;
   }
   .credit a{
     color:var(--dust-soft);text-decoration:underline;text-underline-offset:3px;
     text-decoration-color:rgba(224,171,120,.4);transition:text-decoration-color .2s ease;
   }
   .credit a:hover{text-decoration-color:var(--dust-soft);}
-  .presave{margin-top:36px;}
+  .presave{margin-top:72px;}
   .presave .when{
     font-family:'Space Mono',monospace;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;
     color:var(--bone);margin-bottom:16px;
   }
   .presave-buttons{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
-  .presave-buttons .btn{opacity:.55;transition:opacity .2s ease, border-color .2s ease, background .2s ease, color .2s ease;}
-  .presave-buttons .btn:hover{opacity:1;}
-  .presave-buttons .btn.primary{opacity:1;}
+  .btn-pill{display:inline-flex;align-items:center;gap:.6em;font-family:'Space Mono',monospace;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;padding:.4em 1.15em .4em .4em;border:1px solid var(--line-strong);border-radius:999px;background:rgba(18,13,10,.45);color:var(--bone);text-decoration:none;transition:border-color .2s ease,background .2s ease;}
+  .btn-pill:hover{border-color:var(--dust);background:rgba(18,13,10,.7);}
+  .icon-badge{width:1.9em;height:1.9em;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:none;}
+  .icon-badge svg{width:55%;height:55%;display:block;}
+  .icon-badge.ib-spotify{background:#1DB954;}
+  .icon-badge.ib-spotify svg{color:#0b0b0b;}
+  .icon-badge.ib-apple{background:var(--bone);}
+  .icon-badge.ib-apple svg{color:var(--ink);}
+  .icon-badge.ib-tidal{background:var(--ink-3);border:1px solid var(--line-strong);}
+  .icon-badge.ib-tidal svg{color:var(--bone);}
+  .icon-badge.ib-youtube{background:#E33;}
+  .icon-badge.ib-youtube svg{color:#fff;}
+  @media (min-width:761px){ .btn-pill.mobile-only{display:none;} }
 
   /* ---------- releases: catalog (featured + compact list) ---------- */
   .catalog .wrap{padding-top:8px;}
@@ -143,7 +153,7 @@
   .catalog-featured + .catalog-list,
   .catalog-list + .catalog-featured{margin-top:48px;}
 
-  .catalog-list{border-top:1px solid var(--line);}
+  .catalog-list{max-width:600px;margin:0 auto;border-top:1px solid var(--line);}
   .catalog-row{display:flex;align-items:center;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);}
   .catalog-row .thumb{width:90px;height:90px;flex:none;border-radius:2px;overflow:hidden;border:1px solid var(--line);}
   .catalog-row .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -154,6 +164,7 @@
   /* ---------- follow platforms ---------- */
   .follow h3{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:28px;}
   .follow-buttons{display:flex;gap:12px;flex-wrap:wrap;}
+  .follow-buttons .btn-pill{padding:.55em 1.3em .55em .5em;}
 
   /* ---------- section rhythm (breathing room between sections) ---------- */
   section{padding:clamp(72px, 11vw, 140px) 0;}
@@ -181,13 +192,9 @@
   .podcast p.desc{color:var(--bone-dim);font-size:1rem;margin:0 0 26px;}
   .podcast-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
   .podcast-platforms{display:flex;gap:10px;}
-  .podcast-platforms a{
-    width:44px;height:44px;border:1px solid var(--line-strong);border-radius:2px;
-    display:flex;align-items:center;justify-content:center;transition:border-color .2s ease,background .2s ease,color .2s ease;
-    color:var(--bone);
-  }
-  .podcast-platforms a:hover{border-color:var(--dust);background:var(--dust);color:var(--ink);}
-  .podcast-platforms svg{width:18px;height:18px;display:block;}
+  .podcast-platforms a{width:2.2em;height:2.2em;}
+  .podcast-platforms a:hover{filter:brightness(1.1);}
+  .podcast-platforms svg{width:100%;height:100%;display:block;}
   @media (max-width:760px){ .podcast .wrap{grid-template-columns:1fr;gap:32px;} }
 
   /* ---------- about ---------- */
@@ -196,7 +203,7 @@
   .about p{font-size:1.05rem;color:var(--bone-dim);margin:0 0 18px;}
   .about p strong{color:var(--bone);font-weight:600;}
   .facts{
-    display:flex;gap:34px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid var(--line);
+    margin-top:34px;padding-top:26px;border-top:1px solid var(--line);
     font-family:'Space Mono',monospace;font-size:.82rem;color:var(--bone-dim);
   }
   .facts b{color:var(--bone);font-weight:400;}
@@ -283,9 +290,18 @@
       <div class="presave" id="presave">
         <p class="when">9 Oct <span style="color:var(--dust-soft)">/</span> Pre-Save Now</p>
         <div class="presave-buttons">
-          <a class="btn primary" href="https://open.spotify.com/intl-es/artist/7mpf8OhAQQQiHS6OESYZuw" target="_blank" rel="noopener">Spotify</a>
-          <a class="btn" href="https://music.apple.com/ar/artist/enuman/1118625777" target="_blank" rel="noopener">Apple Music</a>
-          <a class="btn" href="https://tidal.com/artist/8736120" target="_blank" rel="noopener">Tidal</a>
+          <a class="btn-pill" href="https://open.spotify.com/intl-es/artist/7mpf8OhAQQQiHS6OESYZuw" target="_blank" rel="noopener">
+            <span class="icon-badge ib-spotify"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 9.8c3.7-1 8-.6 10.8 1M6.4 13c3-.8 6.7-.5 9.2.8M6.9 16c2.4-.6 5.2-.4 7 .6"/></svg></span>
+            Spotify
+          </a>
+          <a class="btn-pill" href="https://music.apple.com/ar/artist/enuman/1118625777" target="_blank" rel="noopener">
+            <span class="icon-badge ib-apple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17.2V5.6l9-2v10.4"/><circle cx="7" cy="17.6" r="2.2" fill="currentColor" stroke="none"/><circle cx="16" cy="15.4" r="2.2" fill="currentColor" stroke="none"/></svg></span>
+            Music
+          </a>
+          <a class="btn-pill mobile-only" href="https://tidal.com/artist/8736120" target="_blank" rel="noopener">
+            <span class="icon-badge ib-tidal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15l3-3 3 3 3-6 3 6 3-3"/></svg></span>
+            Tidal
+          </a>
         </div>
       </div>
     </div>
@@ -371,21 +387,27 @@
       <span class="eyebrow">Escúchame</span>
       <h3>Sígueme en tu plataforma favorita</h3>
       <div class="follow-buttons">
-        <a class="btn" href="https://open.spotify.com/intl-es/artist/7mpf8OhAQQQiHS6OESYZuw" target="_blank" rel="noopener">Spotify ↗</a>
-        <a class="btn" href="https://music.apple.com/ar/artist/enuman/1118625777" target="_blank" rel="noopener">Apple Music ↗</a>
-        <a class="btn" href="https://tidal.com/artist/8736120" target="_blank" rel="noopener">Tidal ↗</a>
-        <a class="btn" href="https://www.youtube.com/@Enuman/videos" target="_blank" rel="noopener">YouTube ↗</a>
+        <a class="btn-pill" href="https://open.spotify.com/intl-es/artist/7mpf8OhAQQQiHS6OESYZuw" target="_blank" rel="noopener">
+          <span class="icon-badge ib-spotify"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 9.8c3.7-1 8-.6 10.8 1M6.4 13c3-.8 6.7-.5 9.2.8M6.9 16c2.4-.6 5.2-.4 7 .6"/></svg></span>
+          Spotify ↗
+        </a>
+        <a class="btn-pill" href="https://music.apple.com/ar/artist/enuman/1118625777" target="_blank" rel="noopener">
+          <span class="icon-badge ib-apple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17.2V5.6l9-2v10.4"/><circle cx="7" cy="17.6" r="2.2" fill="currentColor" stroke="none"/><circle cx="16" cy="15.4" r="2.2" fill="currentColor" stroke="none"/></svg></span>
+          Apple Music ↗
+        </a>
+        <a class="btn-pill" href="https://tidal.com/artist/8736120" target="_blank" rel="noopener">
+          <span class="icon-badge ib-tidal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15l3-3 3 3 3-6 3 6 3-3"/></svg></span>
+          Tidal ↗
+        </a>
+        <a class="btn-pill" href="https://www.youtube.com/@Enuman/videos" target="_blank" rel="noopener">
+          <span class="icon-badge ib-youtube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/><rect x="3.2" y="6.2" width="17.6" height="11.6" rx="3"/></svg></span>
+          YouTube ↗
+        </a>
       </div>
     </div>
   </section>
 
   <section class="video">
-    <div class="wrap">
-      <div class="video-head">
-        <span class="eyebrow">Video oficial</span>
-        <h3>Reguero</h3>
-      </div>
-    </div>
     <div class="video-embed">
       <iframe src="https://www.youtube-nocookie.com/embed/zrd3UvAcND4" title="Reguero — video oficial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
@@ -403,11 +425,11 @@
         <div class="podcast-actions">
           <a class="btn primary" href="https://open.spotify.com/show/79wObu4IEFis4mvmOWsKUZ" target="_blank" rel="noopener">Escuchar Ahora</a>
           <div class="podcast-platforms">
-            <a href="https://open.spotify.com/show/79wObu4IEFis4mvmOWsKUZ" target="_blank" rel="noopener" aria-label="Spotify">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9.5"/><path d="M7 10.2c3.2-1 7-.6 9.6.9M7.4 13.4c2.6-.8 5.6-.5 7.8.7M7.8 16.3c2-.6 4.4-.4 6 .5"/></svg>
+            <a class="icon-badge ib-spotify" href="https://open.spotify.com/show/79wObu4IEFis4mvmOWsKUZ" target="_blank" rel="noopener" aria-label="Spotify">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 9.8c3.7-1 8-.6 10.8 1M6.4 13c3-.8 6.7-.5 9.2.8M6.9 16c2.4-.6 5.2-.4 7 .6"/></svg>
             </a>
-            <a href="https://youtube.com/playlist?list=PLpdst-i-kNhquX18jz19gJXRyNwgaOVON&si=M3UeXnBWTHI5U22W" target="_blank" rel="noopener" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="6" width="19" height="12" rx="3.5"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg>
+            <a class="icon-badge ib-youtube" href="https://youtube.com/playlist?list=PLpdst-i-kNhquX18jz19gJXRyNwgaOVON&si=M3UeXnBWTHI5U22W" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/><rect x="3.2" y="6.2" width="17.6" height="11.6" rx="3"/></svg>
             </a>
           </div>
         </div>
@@ -422,9 +444,7 @@
       <p><strong>Nací en Barquisimeto, Venezuela, en una casa donde la música sonaba todo el día.</strong> En 2012, a los 20 años, emigré a Buenos Aires — y esa distancia se convirtió en la materia prima de mi obra. De ahí nace Tiempo, el EP que marcó el inicio de mi carrera en diciembre de 2016.</p>
       <p>Mi música viene de ahí: de viajes de ida, de viajes de vuelta, de pérdidas, de recuerdos, de reencuentros, de frases que solo se dicen allá y que, estando acá, me resisto a dejar ir. Para mí, componer es abrazar eso: abrazar quién fui, quién soy, y simplemente cantarlo.</p>
       <div class="facts">
-        <div>Base — <b>Buenos Aires, Argentina</b></div>
-        <div>EP Tiempo — <b>2016</b></div>
-        <div>Próximo — <b>Orilla, 9 de octubre + más en camino</b></div>
+        <div>Buenos Aires, Argentina</div>
       </div>
     </div>
   </section>
