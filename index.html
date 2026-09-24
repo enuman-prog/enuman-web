@@ -92,6 +92,7 @@
   .topbar *{pointer-events:auto;}
   .word{font-family:'Fraunces',serif;font-weight:560;font-size:1.15rem;letter-spacing:.02em;text-decoration:none;transition:opacity .05s linear;}
   
+  .topbar-right{display:flex;align-items:center;gap:20px;}
   .socials{display:flex;gap:16px;align-items:center;transition:opacity .05s linear;}
   .socials a{opacity:.85;transition:opacity .2s ease;}
   .socials a:hover{opacity:1;color:var(--dust-soft);}
@@ -173,7 +174,7 @@
   .back-to-top.visible{opacity:1;pointer-events:auto;transform:translateY(0);}
   .back-to-top svg{width:18px;height:18px;display:block;}
   @media (min-width:761px){ .menu-toggle,.mobile-menu,.back-to-top{display:none !important;} }
-  @media (max-width:760px){ .navlinks{display:none;} .menu-toggle{display:flex;} }
+  @media (max-width:760px){ .navlinks{display:none;} .menu-toggle{display:flex;} .hero{padding-bottom:clamp(128px,20vh,190px);} }
 
   /* ---------- hero presave ---------- */
   .hero-content .credit{
@@ -233,6 +234,10 @@
   .follow-wrap{max-width:864px;display:flex;flex-direction:column;align-items:center;text-align:center;}
   .follow-title{font-family:'Space Mono',ui-monospace,monospace;font-size:.72rem;letter-spacing:.16em;color:var(--dust-soft);margin:0 0 28px;}
   .follow-buttons{display:flex;gap:32px;flex-wrap:wrap;justify-content:center;}
+  @media (max-width:760px){
+    .follow-buttons{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;}
+    .follow-buttons .btn-pill{width:100%;}
+  }
 
   /* ---------- section rhythm (breathing room between sections) ---------- */
   section{padding:clamp(72px, 11vw, 140px) 0;}
@@ -351,6 +356,7 @@
     <a href="#podcast">Reguero El Podcast</a>
     <a href="#bio">Sobre mí</a>
   </div>
+  <div class="topbar-right">
   <div class="socials" aria-label="Redes">
     <a href="https://www.instagram.com/_enuman/" target="_blank" rel="noopener" aria-label="Instagram">
       <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -393,6 +399,7 @@
   <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
+  </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <a href="#top">Home</a>
