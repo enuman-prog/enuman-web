@@ -35,6 +35,8 @@
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
+  /* Sin rebote al llegar al tope: va en html (el scroller real) además de body, que ya lo tenía. */
+  html{overscroll-behavior-y:none;background-color:var(--bg-page);}
   body{
     background:var(--bg-page);
     color:var(--bone);
