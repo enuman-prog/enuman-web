@@ -1,4 +1,13 @@
-<!doctype html><html lang="es"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!doctype html><html lang="es"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3D22JFZZE7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3D22JFZZE7');
+</script>
+<meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Enuman — Orilla</title>
 <meta name="description" content="Enuman — Orilla, ft. El Otro Borges. Ya disponible en todas las plataformas.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMxMjBkMGEiLz48dGV4dCB4PSIzMiIgeT0iNDYiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiIGZvbnQtc2l6ZT0iMzgiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmMWU3ZDgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkU8L3RleHQ+PC9zdmc+">
@@ -22,7 +31,7 @@
     --ink:#120d0a;
     --ink-2:#1c1610;
     --ink-3:#2a2119;
-    --bg-page:#0b0b0b;
+    --bg-page:#070707;
     --bone:#fbf3e6;
     --bone-dim:#d0c3ac;
     --dust:#de9a5c;
@@ -268,8 +277,12 @@
   /* ---------- video ---------- */
   .video-head{margin-bottom:28px;}
   .video-head h3{font-size:clamp(1.6rem,3.2vw,2.1rem);margin-top:8px;}
+  .video{padding:clamp(40px,8vh,88px) 0;}
+  /* 16:9, centrado, alto máximo = alto de pantalla (menos aire arriba/abajo) y nunca a todo el ancho */
   .video-embed{
-    position:relative;width:calc(100% + 40px);margin-left:-20px;margin-right:-20px;aspect-ratio:4/3;overflow:hidden;
+    position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:2px;
+    width:min(100%, 1040px, calc((var(--vh, 1vh) * 100 - 128px) * 16 / 9));
+    margin:0 auto;
     background:var(--ink-2);
   }
   .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
