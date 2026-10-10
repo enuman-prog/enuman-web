@@ -22,15 +22,15 @@
     --ink:#120d0a;
     --ink-2:#1c1610;
     --ink-3:#2a2119;
-    --bg-page:#121212;
-    --bone:#f1e7d8;
-    --bone-dim:#b6a892;
-    --dust:#cf8a4c;
-    --dust-soft:#e0ab78;
+    --bg-page:#0b0b0b;
+    --bone:#fbf3e6;
+    --bone-dim:#d0c3ac;
+    --dust:#de9a5c;
+    --dust-soft:#efbd8a;
     --ember:#a8471f;
     --moss:#63715f;
-    --line:rgba(241,232,217,.14);
-    --line-strong:rgba(241,232,217,.28);
+    --line:rgba(251,243,230,.14);
+    --line-strong:rgba(251,243,230,.28);
     color-scheme:dark;
   }
   *{box-sizing:border-box;}
@@ -56,7 +56,7 @@
     pointer-events:none;
     opacity:.18;
     mix-blend-mode:normal;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='256' height='256'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncR type='linear' slope='2.6' intercept='-0.8'/><feFuncG type='linear' slope='2.6' intercept='-0.8'/><feFuncB type='linear' slope='2.6' intercept='-0.8'/></feComponentTransfer></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='256' height='256'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncR type='linear' slope='3.0' intercept='-1.2'/><feFuncG type='linear' slope='3.0' intercept='-1.2'/><feFuncB type='linear' slope='3.0' intercept='-1.2'/></feComponentTransfer></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
     background-repeat:repeat;
     background-size:256px 256px;
   }
@@ -197,7 +197,7 @@
   }
   .credit a{
     color:var(--dust-soft);text-decoration:underline;text-underline-offset:3px;
-    text-decoration-color:rgba(224,171,120,.4);transition:text-decoration-color .2s ease;
+    text-decoration-color:rgba(239,189,138,.4);transition:text-decoration-color .2s ease;
   }
   .credit a:hover{text-decoration-color:var(--dust-soft);}
   .presave{margin-top:calc(var(--vh, 1vh) * 5);margin-left:1.181vw;}
@@ -211,7 +211,7 @@
   .presave-buttons .btn-pill{flex:none;padding:14px 30px;background:var(--bone);color:var(--ink);border-color:var(--bone);}
   .presave-buttons .btn-pill:hover{background:var(--bone);border-color:var(--bone);filter:brightness(1.06);}
   .btn-pill{display:inline-flex;align-items:center;justify-content:center;gap:16px;font-family:'Space Mono',monospace;font-size:.78rem;letter-spacing:.047em;text-transform:uppercase;padding:12px 16px;border:1px solid var(--line-strong);border-radius:2px;background:transparent;color:var(--bone);text-decoration:none;transition:border-color .2s ease,background .2s ease;}
-  .btn-pill:hover{border-color:var(--bone);background:rgba(241,232,217,.06);}
+  .btn-pill:hover{border-color:var(--bone);background:rgba(251,243,230,.06);}
   .btn-pill.secondary{opacity:.55;transition:opacity .2s ease,border-color .2s ease,background .2s ease;}
   .btn-pill.secondary:hover{opacity:1;}
   /* Icon badge system: 28px inside pills, 36px standalone. Spotify/YouTube marks already
